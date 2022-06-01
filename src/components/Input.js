@@ -46,7 +46,7 @@ export default class Input extends Component {
     this.setState({ value: value });
     // this.props.setState({ [name]: value });
 
-    // this.props.handleChange(name, value);
+  //  this.props.setValue({ [name]: value });
   };
 
   render() {
@@ -67,11 +67,12 @@ export default class Input extends Component {
             onFocus={this._onFocus}
             onChange={this.onChange}
             name={this.props.name}
-          
             autoFocus={this.props.autoFocus}
             readOnly={this.props.readOnly}
             required={this.props.required}
             pattern={this.props.pattern && this.props.pattern}
+
+            {...this.props.register(this.props.name)}
           />
           <small className="text-info">{this.props.textInfo}</small>
         </Formgroup>

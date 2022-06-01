@@ -15,6 +15,10 @@ import NewModel from "./newModel";
 
 const URL = process.env.REACT_APP_API_BASE_URL;
 
+const IMGURL = process.env.REACT_APP_API_BASE_IMG;
+
+
+
 const Product = (props) => {
   const [load, setLoad] = useState(false);
   const [del, setDel] = useState(false);
@@ -85,7 +89,7 @@ const Product = (props) => {
                 src={
                   product[key] &&
                   product[key].get_image &&
-                  URL + "pic/" + product[key].get_image.path
+                  IMGURL + "/" + product[key].get_image.path
                 }
               />
             </td>

@@ -218,8 +218,10 @@ const NewModel = (props) => {
                   <Input
                     required
                     type="text"
-                    {...register("name")}
+                    
                     label="Product Title"
+                    name="name"
+                    register={register}
                   />
                 </Col>
               </Row>
@@ -228,8 +230,10 @@ const NewModel = (props) => {
                   <Input
                     required
                     type="text"
-                    {...register("detail")}
+                 
                     label="Product details"
+                    name="detail"
+                    register={register}
                   />
                 </Col>
               </Row>
@@ -238,8 +242,11 @@ const NewModel = (props) => {
                   <Input
                     required
                     type="text"
-                    {...register("price")}
+              
                     label="Product price"
+
+                    name="price"
+                    register={register}
                   />
                 </Col>
                 <Col xl={6}>
@@ -247,7 +254,12 @@ const NewModel = (props) => {
                     required
                     type="text"
                     label="Stock"
-                    {...register("stock")}
+         
+
+
+                    
+                    name="stock"
+                    register={register}
                   />
                 </Col>
               </Row>

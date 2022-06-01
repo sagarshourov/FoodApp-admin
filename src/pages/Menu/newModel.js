@@ -26,14 +26,17 @@ const NewModel = (props) => {
   const [load, setLoad] = useState(false);
   const [upload, setUploaded] = useState(false);
   const [file, setFile] = useState(null);
-  const { register, handleSubmit, reset } = useForm();
+  const { register, setValue, handleSubmit, reset } = useForm();
 
   useEffect(() => {
 
-    console.log(props.uploads)
+    console.log(props)
     if (!props.uploads.loading && props.uploads.upload && props.uploads.upload.data && upload) {
       setUploaded(false);
       setFile(props.uploads.upload.data);
+    }
+    if (!props.menu.loading && props.menu.add_menu && props.menu.add_menu.data ) {
+      window.location.reload();
     }
 
     Modal.setAppElement("body");
@@ -71,7 +74,7 @@ const NewModel = (props) => {
             </button>
           </div>
           <div className="modal-body">
-            <form onSubmit={handleSubmit(onSubmit)} style={{ width: "500px" }}>
+            <form onSubmit={handleSubmit(onSubmit)} style={{ width: "700px" }}>
               <Row className="my-1">
                 <Col xl={2}>Image</Col>
                 <Col xl={9}>
@@ -80,7 +83,7 @@ const NewModel = (props) => {
                     name="file"
                     type="file"
                   />
-                  {upload && <p>Uploading....</p>}
+                  {upload && <p>File Uploading .. Please wait ..</p>}
                 </Col>
               </Row>
               <Row className="my-1">
@@ -88,15 +91,15 @@ const NewModel = (props) => {
                   <Input
                     type="text"
                     label="Menu Title"
-                    {...register(`name`, {
-                      required: true,
-                    })}
+                    name="name"
+                    register={register}
+                 
                   />
                 </Col>
               </Row>
               <Row>
                 <Col xl={12}>
-                  <Button>Add</Button>
+                  <Button type="submit">Add</Button>
                 </Col>
               </Row>
             </form>

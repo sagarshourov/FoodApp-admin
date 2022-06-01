@@ -10,6 +10,9 @@ import { addMenu, getMenus, deleteMenu } from "../../actions/menuActions";
 import EditModel from "./editModel";
 import NewModel from "./newModel";
 const URL = process.env.REACT_APP_API_BASE_URL;
+
+const IMGURL = process.env.REACT_APP_API_BASE_IMG;
+
 const Menu = (props) => {
   const [load, setLoad] = useState(false);
   const [delLoad, setDelLoad] = useState(false);
@@ -69,7 +72,7 @@ const Menu = (props) => {
                 src={
                   menu[key] &&
                   menu[key].get_image &&
-                  URL + "pic/" + menu[key].get_image.path
+                  IMGURL + "/" + menu[key].get_image.path
                 }
               />
             </td>
